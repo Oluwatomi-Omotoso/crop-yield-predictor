@@ -42,7 +42,7 @@ def load_assets():
     cat_mappings = joblib.load(os.path.join(BASE_DIR,"ML/models/NN_Models/category_mappings.pkl"))
 
     # load pipeline model(Random_Forest)
-    pipeline_model = joblib.load("../ML/models/final-model.pkl")
+    pipeline_model = joblib.load(os.path.join(BASE_DIR,"ML/models/final-model.pkl"))
 
     return nn_model, scaler, cat_mappings, pipeline_model
 
@@ -50,7 +50,7 @@ def load_assets():
 NN_model, Scaler, categorical_mappings, pipeline_model = load_assets()
 
 
-# UI setup & Inputs
+# UI setup & ML
 st.title("Agricultural Intelligence: Dual-Model Prediction")
 
 df = pd.read_csv("../data/processed/Final_dataset.csv")
